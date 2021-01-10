@@ -1,0 +1,55 @@
+<!--
+ * @author: xiejiaxin
+ * @Date: 2021-01-06 20:33:32
+ * @LastEditors: xiejiaxin
+ * @LastEditTime: 2021-01-10 11:58:58
+ * @description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue源码解析</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <input type="text" v-model="msg">
+        <button v-on:click="handleClick">v-on:handleClick</button>
+        <button @click="handleClick">@handleClick</button>
+    </div>
+    <script src="./simple-vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello world'
+            },
+            methods: {
+                handleClick() {
+                    console.log(this)
+                    this.msg = new Date().getTime();
+                }
+            }
+        });
+        vm.msg = 'something';
+        // console.log(vm.msg)
+    </script>
+    <script>
+        // 测试defineProperty
+        // let newObj = {};
+        // let b = 1;
+        // Object.defineProperty(newObj, 'a', {
+        //     get() {
+        //         return b;
+        //     },
+        //     set(newVal) {
+        //         b = newVal
+        //     }
+        // })
+        // newObj.a = '2jio';
+        // console.log(b)
+    </script>
+</body>
+</html>
