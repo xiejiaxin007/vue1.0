@@ -57,7 +57,7 @@ const utils = {
     },
     on(node, value, vm, eventName) {
         const fn = vm.$options.methods[value];
-        document.addEventListener(eventName, fn.bind(vm), false);
+        node.addEventListener(eventName, fn.bind(vm), false);
     }
 }
 // 收集dom依赖，根据data的变化来更新dom节点内容
